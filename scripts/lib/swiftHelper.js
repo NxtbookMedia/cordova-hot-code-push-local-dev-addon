@@ -233,9 +233,9 @@ function setSwiftHeader(prefixFileContent, swiftImportHeader) {
  * @return {String} Swift header name
  */
 function generateSwiftHeaderFromProjectName(projectModuleName) {
-  var normalizedName = projectModuleName.replace(/([^a-z0-9]+)/gi, '_');
+  var normalizedName = projectModuleName.replace(/([^a-z0-9])/gi, '_');
 
-  return normalizedName + '-Swift.h'
+  return normalizedName + '-Swift.h';
 }
 
 // endregion
