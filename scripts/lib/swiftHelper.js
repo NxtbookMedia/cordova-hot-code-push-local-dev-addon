@@ -150,7 +150,7 @@ function injectSwiftOptionsInProjectConfig(xcodeProject) {
     buildSettings['IPHONEOS_DEPLOYMENT_TARGET'] = IOS_DEPLOYMENT_TARGET;
     buildSettings['EMBEDDED_CONTENT_CONTAINS_SWIFT'] = "YES";
     buildSettings['LD_RUNPATH_SEARCH_PATHS'] = '"@executable_path/Frameworks"';
-    buildSettings['SWIFT_VERSION'] = '3.0';
+    buildSettings['SWIFT_VERSION'] = '3.2';
 
     // if project module name is not defined - set it with value from build settings
     if ((!projectModuleName || projectModuleName.length == 0) && buildSettings['PRODUCT_NAME']) {
