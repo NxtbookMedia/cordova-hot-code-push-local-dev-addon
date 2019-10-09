@@ -219,6 +219,7 @@ function setProjectModuleName(nameFromBuildSettings) {
  * This way we ensure that Swift libraries are accessible in all project classes.
  */
 function injectSwiftHeader() {
+    logger.header('Trying to inject Swift header');
   // path to Prefix file and the name of included header
   var pluginHeaderFilePath = path.join(iosPlatformPath, projectName, 'Plugins', PLUGIN_NAME, PLUGIN_MAIN_HEADER),
     swiftImportHeader = generateSwiftHeaderFromProjectName(projectModuleName),
@@ -234,6 +235,7 @@ function injectSwiftHeader() {
 
   // don't import if it is already there
   if (headerFileContent.indexOf(swiftImportHeader) > -1) {
+      logger.header('Behold, it has failed: ' + swiftImportHeader);
     return;
   }
 
