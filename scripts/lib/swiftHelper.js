@@ -73,6 +73,11 @@ function init(ctx) {
  */
 function loadProjectFile() {
     try {
+        return loadProjectFile_cordova_9_and_above();
+    } catch(e) {
+    }
+
+    try {
         return loadProjectFile_cordova_7_and_above();
     } catch(e) {
     }
@@ -115,6 +120,13 @@ function loadProjectFile_cordova_7_and_above() {
         xcode: xcodeproj,
         write: saveProj
     };
+}
+
+function loadProjectFile_cordova_9_and_above() {
+  var iosPlatformApi = require(path.join(iosPlatformPath, '/cordova/Api'));
+  var projectFileApi = require(path.join(iosPlatformPath, '/cordova/lib/projectFile.js'));
+  var locations = (new iosPlatformApi()).locations;
+  return projectFileApi.parse(locations);
 }
 
 /**
